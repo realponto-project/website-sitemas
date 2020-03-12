@@ -1,0 +1,361 @@
+body {
+  margin: 0;
+}
+.main-home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.div-menu-home {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(30, 144, 255, 1);
+  display: flex;
+  justify-content: space-between;
+}
+.div-logo-home {
+  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+.div-submenu-home {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-right: 50px;
+}
+.button-login-home {
+  background-color: white;
+  width: 80px;
+  height: 45%;
+  border-radius: 25px;
+  outline: none;
+  border: white;
+  color: rgba(30, 144, 255, 1);
+  cursor: pointer;
+  font-size: 15px;
+}
+.button-login-home:active {
+  background-color: rgb(236, 236, 236);
+}
+.a-home {
+  margin-right: 20px;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+}
+.div-image-home {
+  background-image: url("../../images/estoque.jpg");
+  height: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center center;
+  background-size: cover;
+  filter: brightness(90%);
+}
+.div-minor-image-home {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.h1-image-home {
+  line-height: 40px;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 32px;
+  text-align: center;
+  color: #eee;
+  font-family: Bebas;
+  filter: brightness(100%);
+  margin-bottom: 0;
+}
+.p-image-home {
+  color: #eee;
+  font-size: 16px;
+  font-weight: bold;
+}
+.sobreNos-home {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: absolute;
+  top: 35%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.button-leiaMais-home {
+  width: 120px;
+  height: 30px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  background-color: white;
+  color: #1e90ff;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.button-leiaMais-home:active {
+  background-color: rgb(236, 236, 236);
+}
+.div-bg-home {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(30, 144, 255, 1);
+}
+.carousel-home {
+  width: 854px;
+  height: 200px;
+}
+.div-nextAndPerv-home {
+  width: 50px;
+  height: 190px;
+  font-size: 20px;
+  color: rgb(231, 231, 231);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.div-nextAndPerv-home:hover {
+  color: white;
+}
+.div-mainCarousel-home {
+  width: 100%;
+  height: 200px;
+  display: flex !important;
+  justify-content: space-around;
+}
+.div-cardsCarousel-home {
+  width: 150px;
+  height: 190px;
+  border-radius: 7px;
+  background-color: white;
+  border: 1px solid rgb(238, 238, 238);
+  box-shadow: -1px 6px 17px -8px rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.div-cardReact-home {
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  background: url("../../images/react.png") center no-repeat;
+}
+.div-cardRedux-home {
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  background: url("../../images/redux.png") center no-repeat;
+}
+.div-cardRamda-home {
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  background: url("../../images/ramda.png") center no-repeat;
+}
+.div-cardNode-home {
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  background: url("../../images/node.png") center no-repeat;
+}
+.div-cardGit-home {
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+  background: url("../../images/git.png") center no-repeat;
+}
+.div-nossosEspe-home {
+  width: 100%;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.div-cardsNossosEspe-home {
+  width: 880px;
+  display: flex;
+  justify-content: space-between;
+}
+.card-nossosEspe-home {
+  border: 1px solid rgb(238, 238, 238);
+  width: 250px;
+  height: 350px;
+  border-radius: 5px;
+  box-shadow: -1px 6px 5px -2px rgba(217, 217, 217, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.h2-nossosEspe-home {
+  color: #1e90ff;
+  font-family: Bebas;
+  font-size: 28px;
+  margin: 40px 0 30px 0;
+}
+.div-fotoNossosEspe-home {
+  width: 190px;
+  margin-top: 20px;
+  height: 190px;
+  background: url("../../images/carlosBeleza1.jpeg") center;
+  border-radius: 50%;
+}
+.div-fotoNossosEspec-home {
+  width: 190px;
+  margin-top: 20px;
+  height: 190px;
+  background: url("../../images/neguinha.jpeg") top;
+  border-radius: 50%;
+}
+.div-fotoNossosEspeci-home {
+  width: 190px;
+  margin-top: 20px;
+  height: 190px;
+  background: url("../../images/hoho1.jpeg") center;
+  border-radius: 50%;
+}
+.h2-cardNossosEspe-home {
+  color: #1e90ff;
+  margin-top: 30px;
+  font-family: Bebas;
+}
+.h3-cardNossosEspe-home {
+  color: rgb(133, 133, 133);
+  font-family: Bebas;
+}
+.div-noticia-home {
+  width: 100%;
+  height: 370px;
+  background-color: #1e90ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div-print-home {
+  width: 676px;
+  height: 287px;
+  background: url("../../images/print1.jpg") center no-repeat;
+  margin-right: 70px;
+  box-shadow: 7px 7px 0px 0px rgba(40, 40, 41, 0.31);
+  border-radius: 2px;
+}
+.div-comentarios-home {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.card-comentarios-home {
+  width: 65%;
+  height: 75%;
+  border: 1px solid rgb(238, 238, 238);
+  margin-left: 200px;
+  border-radius: 3px;
+  box-shadow: 24px 10px 0px 0px rgba(30, 144, 255, 0.31);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.p-comentarios-home {
+  padding: 40px 20px 0 80px;
+  color: #1e90ff;
+}
+.div-nomeCliente-comentarios-home {
+  background-color: #1e90ff;
+  color: white;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 10px;
+}
+.div-buttonsAvancarEretornar-home {
+  width: 80px;
+  display: flex;
+  margin-top: 10px;
+}
+.button-avancarEretornar-home {
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  border: 1px solid #bbbbbb;
+  background-color: white;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.button-avancarEretornar-home:active {
+  background-color: rgb(241, 241, 241);
+}
+.div-rodape-home {
+  width: 100%;
+  height: 250px;
+  background-color: #f5f6f7;
+  display: flex;
+  flex-direction: column;
+}
+.div-coluna-rodape-home {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.div-columns-rodape-home {
+  display: flex;
+  width: 100%;
+  height: 230px;
+}
+.a-rodape-home {
+  color: rgb(112, 112, 112);
+  font-family: Bebas;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0;
+}
+.a-rodape-home:hover {
+  color: rgb(112, 112, 112);
+}
+.div-a-rodape-home {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.div-developed-rodape-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20px;
+  font-family: Bebas;
+  font-size: 17px;
+}
+.div-developed-rodape-home:hover {
+  cursor: default;
+}
+@font-face {
+  font-family: "Bebas";
+  src: url("../../fonts/BebasNeue-Regular.ttf");
+}
