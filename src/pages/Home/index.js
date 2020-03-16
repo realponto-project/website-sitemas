@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./index.css";
-import { Carousel } from "antd";
 import "antd/dist/antd.css";
+import { Redirect } from "react-router-dom";
 import {
   RightOutlined,
   LeftOutlined,
@@ -12,319 +12,358 @@ import {
   MailFilled
 } from "@ant-design/icons";
 
-class Home extends Component {
-  Carousel = () => (
-    <div className="carousel-home">
-      <Carousel
-        // ref={node => (this.carousel = node)}
-        style={{ height: "200px" }}
-        effect="fade"
-        autoplay
-        dots={false}
-      >
-        <div className="div-mainCarousel-home">
-          <div
-            className="div-nextAndPerv-home"
-            // onClick={this.previous}
-          >
-            <LeftOutlined />
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardReact-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#61DBFC",
-                fontFamily: "Bebas"
-              }}
-            >
-              React
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardRedux-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#8159C3",
-                fontFamily: "Bebas"
-              }}
-            >
-              Redux
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardRamda-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#884399",
-                fontFamily: "Bebas"
-              }}
-            >
-              Ramda
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardNode-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#8AC649",
-                fontFamily: "Bebas"
-              }}
-            >
-              Node
-            </h2>
-          </div>
-          <div className="div-nextAndPerv-home" onClick={this.next}>
-            <RightOutlined />
-          </div>
-        </div>
-        <div className="div-mainCarousel-home">
-          <div
-            className="div-nextAndPerv-home"
-            // onClick={this.previous}
-          >
-            <LeftOutlined />
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardRedux-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#8159C3",
-                fontFamily: "Bebas"
-              }}
-            >
-              Redux
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardRamda-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#884399",
-                fontFamily: "Bebas"
-              }}
-            >
-              Ramda
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardNode-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#8AC649",
-                fontFamily: "Bebas"
-              }}
-            >
-              Node
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardGit-home"></div>
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#000000",
-                fontFamily: "Bebas"
-              }}
-            >
-              GitHub
-            </h2>
-          </div>
-          <div className="div-nextAndPerv-home" onClick={this.next}>
-            <RightOutlined />
+class HomePage extends Component {
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        page: (this.state.page + 1) % 5
+      });
+    }, 5000);
+  }
+
+  state = {
+    redirect: false,
+    logged: false,
+    page: 0
+  };
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    });
+  };
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/login" />;
+    }
+  };
+
+  nextPage = () => {
+    this.setState({
+      page: (this.state.page + 1) % 5
+    });
+  };
+
+  prevPage = () => {
+    this.setState({
+      page: (this.state.page - 1) % 5
+    });
+  };
+
+  Carousel = () => {
+    if (this.state.page === 0) {
+      return (
+        <div className="carousel-home">
+          <div className="div-mainCarousel-home">
+            <div className="div-nextAndPerv-home" onClick={this.prevPage}>
+              <LeftOutlined />
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardReact-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#61DBFC",
+                  fontFamily: "Bebas"
+                }}
+              >
+                React
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardRedux-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#8159C3",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Redux
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardRamda-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#884399",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Ramda
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardNode-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#8AC649",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Node
+              </h2>
+            </div>
+            <div className="div-nextAndPerv-home" onClick={this.nextPage}>
+              <RightOutlined />
+            </div>
           </div>
         </div>
-        <div className="div-mainCarousel-home">
-          <div
-            className="div-nextAndPerv-home"
-            // onClick={this.previous}
-          >
-            <LeftOutlined />
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardRamda-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#884399",
-                fontFamily: "Bebas"
-              }}
-            >
-              Ramda
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardNode-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#8AC649",
-                fontFamily: "Bebas"
-              }}
-            >
-              Node
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardGit-home"></div>
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#000000",
-                fontFamily: "Bebas"
-              }}
-            >
-              GitHub
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardReact-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#61DBFC",
-                fontFamily: "Bebas"
-              }}
-            >
-              React
-            </h2>
-          </div>
-          <div className="div-nextAndPerv-home" onClick={this.next}>
-            <RightOutlined />
-          </div>
-        </div>
-        <div className="div-mainCarousel-home">
-          <div
-            className="div-nextAndPerv-home"
-            // onClick={this.previous}
-          >
-            <LeftOutlined />
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardNode-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#8AC649",
-                fontFamily: "Bebas"
-              }}
-            >
-              Node
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardGit-home"></div>
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#000000",
-                fontFamily: "Bebas"
-              }}
-            >
-              GitHub
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardReact-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#61DBFC",
-                fontFamily: "Bebas"
-              }}
-            >
-              React
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardRedux-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#8159C3",
-                fontFamily: "Bebas"
-              }}
-            >
-              Redux
-            </h2>
-          </div>
-          <div className="div-nextAndPerv-home" onClick={this.next}>
-            <RightOutlined />
+      );
+    } else if (this.state.page === 1 || this.state.page === -4) {
+      return (
+        <div className="carousel-home">
+          <div className="div-mainCarousel-home">
+            <div className="div-nextAndPerv-home" onClick={this.prevPage}>
+              <LeftOutlined />
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardRedux-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#8159C3",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Redux
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardRamda-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#884399",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Ramda
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardNode-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#8AC649",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Node
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardGit-home"></div>
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#000000",
+                  fontFamily: "Bebas"
+                }}
+              >
+                GitHub
+              </h2>
+            </div>
+            <div className="div-nextAndPerv-home" onClick={this.nextPage}>
+              <RightOutlined />
+            </div>
           </div>
         </div>
-        <div className="div-mainCarousel-home">
-          <div
-            className="div-nextAndPerv-home"
-            // onClick={this.previous}
-          >
-            <LeftOutlined />
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardGit-home"></div>
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#000000",
-                fontFamily: "Bebas"
-              }}
-            >
-              GitHub
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardReact-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#61DBFC",
-                fontFamily: "Bebas"
-              }}
-            >
-              React
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardRedux-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#8159C3",
-                fontFamily: "Bebas"
-              }}
-            >
-              Redux
-            </h2>
-          </div>
-          <div className="div-cardsCarousel-home">
-            <div className="div-cardRamda-home" />
-            <h2
-              style={{
-                marginTop: "20px",
-                color: "#884399",
-                fontFamily: "Bebas"
-              }}
-            >
-              Ramda
-            </h2>
-          </div>
-          <div className="div-nextAndPerv-home" onClick={this.next}>
-            <RightOutlined />
+      );
+    } else if (this.state.page === 2 || this.state.page === -3) {
+      return (
+        <div className="carousel-home">
+          <div className="div-mainCarousel-home">
+            <div className="div-nextAndPerv-home" onClick={this.prevPage}>
+              <LeftOutlined />
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardRamda-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#884399",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Ramda
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardNode-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#8AC649",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Node
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardGit-home"></div>
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#000000",
+                  fontFamily: "Bebas"
+                }}
+              >
+                GitHub
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardReact-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#61DBFC",
+                  fontFamily: "Bebas"
+                }}
+              >
+                React
+              </h2>
+            </div>
+            <div className="div-nextAndPerv-home" onClick={this.nextPage}>
+              <RightOutlined />
+            </div>
           </div>
         </div>
-      </Carousel>
-    </div>
-  );
+      );
+    } else if (this.state.page === 3 || this.state.page === -2) {
+      return (
+        <div className="carousel-home">
+          <div className="div-mainCarousel-home">
+            <div className="div-nextAndPerv-home" onClick={this.prevPage}>
+              <LeftOutlined />
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardNode-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#8AC649",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Node
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardGit-home"></div>
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#000000",
+                  fontFamily: "Bebas"
+                }}
+              >
+                GitHub
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardReact-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#61DBFC",
+                  fontFamily: "Bebas"
+                }}
+              >
+                React
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardRedux-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#8159C3",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Redux
+              </h2>
+            </div>
+            <div className="div-nextAndPerv-home" onClick={this.nextPage}>
+              <RightOutlined />
+            </div>
+          </div>
+        </div>
+      );
+    } else if (this.state.page === 4 || this.state.page === -1) {
+      return (
+        <div className="carousel-home">
+          <div className="div-mainCarousel-home">
+            <div className="div-nextAndPerv-home" onClick={this.prevPage}>
+              <LeftOutlined />
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardGit-home"></div>
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#000000",
+                  fontFamily: "Bebas"
+                }}
+              >
+                GitHub
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardReact-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#61DBFC",
+                  fontFamily: "Bebas"
+                }}
+              >
+                React
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardRedux-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#8159C3",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Redux
+              </h2>
+            </div>
+            <div className="div-cardsCarousel-home">
+              <div className="div-cardRamda-home" />
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color: "#884399",
+                  fontFamily: "Bebas"
+                }}
+              >
+                Ramda
+              </h2>
+            </div>
+            <div className="div-nextAndPerv-home" onClick={this.nextPage}>
+              <RightOutlined />
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
 
   render() {
     return (
       <div className="main-home">
         <div className="div-menu-home">
+          {this.renderRedirect()}
           <div className="div-logo-home">
             <a
               style={{
@@ -333,16 +372,25 @@ class Home extends Component {
                 margin: 0,
                 fontSize: "28px"
               }}
-              href={"."}
+              href={"/home"}
             >
               Nome
             </a>
           </div>
           <div className="div-submenu-home">
-            <a href="." className="a-home">
+            <a href="/home" className="a-home">
               Estoque
             </a>
-            <button className="button-login-home">login</button>
+            {this.state.logged ? (
+              <div className="div-logged-home">
+                <p className="p-logged-home">Batman</p>
+                <div className="div-avatar-home" />
+              </div>
+            ) : (
+              <button className="button-login-home" onClick={this.setRedirect}>
+                login
+              </button>
+            )}
           </div>
         </div>
         <div className="div-image-home">
@@ -528,4 +576,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomePage;
