@@ -336,6 +336,13 @@ body {
   align-items: center;
   margin-left: 10px;
 }
+.drop-home {
+  background-color: #1e90ff !important;
+}
+.drop-submenu-home {
+  background-color: #1e90ff !important;
+  color: white !important;
+}
 .div-avatar-home {
   width: 30px;
   height: 30px;
@@ -344,6 +351,7 @@ body {
   background: url("../../images/icon.png") center no-repeat;
   background-color: white;
   cursor: pointer;
+  margin-right: 5px;
 }
 .p-logged-home {
   margin: 0;

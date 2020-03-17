@@ -35,6 +35,8 @@ class LoginPage extends Component {
 
       if (status === 200) {
         await this.props.onSubmit(data);
+
+        await this.setRedirect();
       }
       if (status === 401) {
         this.setState(data);
@@ -51,6 +53,8 @@ class LoginPage extends Component {
 
     if (status === 200) {
       await this.props.onSubmit(data);
+
+      await this.setRedirect();
     }
     if (status === 401) {
       this.setState(data);

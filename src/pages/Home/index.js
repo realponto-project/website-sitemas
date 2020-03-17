@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import "./index.css";
 import "antd/dist/antd.css";
 import { Redirect } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Menu, Dropdown } from "antd";
+import { Logout } from "../../pages/Login/LoginRedux/action";
+
 import {
   RightOutlined,
   LeftOutlined,
@@ -9,7 +14,9 @@ import {
   InstagramFilled,
   ChromeFilled,
   PhoneFilled,
-  MailFilled
+  MailFilled,
+  LogoutOutlined,
+  DownOutlined
 } from "@ant-design/icons";
 
 class HomePage extends Component {
@@ -23,7 +30,6 @@ class HomePage extends Component {
 
   state = {
     redirect: false,
-    logged: false,
     page: 0
   };
 
@@ -49,6 +55,15 @@ class HomePage extends Component {
       page: (this.state.page - 1) % 5
     });
   };
+
+  MenuDrop = () => (
+    <Menu className="drop-home">
+      <Menu.Item className="drop-submenu-home">
+        <LogoutOutlined onClick={this.props.Logout()} />
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
 
   Carousel = () => {
     if (this.state.page === 0) {
@@ -381,10 +396,13 @@ class HomePage extends Component {
             <a href="/home" className="a-home">
               Estoque
             </a>
-            {this.state.logged ? (
+            {this.props.login.user.id !== "" ? (
               <div className="div-logged-home">
-                <p className="p-logged-home">Batman</p>
+                <p className="p-logged-home">{this.props.login.user.email}</p>
                 <div className="div-avatar-home" />
+                <Dropdown overlay={this.MenuDrop} trigger={["click"]}>
+                  <DownOutlined style={{ cursor: "pointer" }} />
+                </Dropdown>
               </div>
             ) : (
               <button className="button-login-home" onClick={this.setRedirect}>
@@ -576,4 +594,17 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+function mapDispacthToProps(dispach) {
+  return bindActionCreators({ Logout }, dispach);
+}
+
+function mapStateToProps(state) {
+  return {
+    login: state.login
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispacthToProps
+)(HomePage);
