@@ -3,6 +3,7 @@ import "./index.css";
 import { Checkbox, message } from "antd";
 import { masks } from "./validator";
 import { Redirect } from "react-router-dom";
+import { NewUser } from "../../services/user";
 
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
@@ -16,7 +17,53 @@ class CadastroPage extends Component {
     confirmar: "",
     celular: "",
     notificacao: false,
-    rendirect: false
+    rendirect: false,
+    cadastrar: false,
+    codigo: ""
+  };
+
+  clearState = () => {
+    this.setState({
+      nome: "",
+      sobrenome: "",
+      cpf: "",
+      email: "",
+      senha: "",
+      confirmar: "",
+      celular: "",
+      notificacao: false,
+      rendirect: false
+    });
+  };
+
+  newUser = async () => {
+    const {
+      nome: name,
+      senha: password,
+      celular,
+      cpf,
+      notificacao: permissionToNotification,
+      email
+    } = this.state;
+
+    const value = {
+      name,
+      password,
+      celular,
+      cpf,
+      permissionToNotification,
+      email
+    };
+
+    const { status, data } = await NewUser(value);
+
+    if (status === 200) {
+      console.log(data);
+      await this.clearState();
+      await this.setState({
+        cadastrar: true
+      });
+    }
   };
 
   onChangeNotificacao = () => {
@@ -49,78 +96,123 @@ class CadastroPage extends Component {
     }
   };
 
+  Cadastro = () => (
+    <div className="div-main-cadastro">
+      <div className="div-card-cadastro">
+        <div className="div-icon-login">
+          {this.renderRedirect()}
+          <ArrowLeftOutlined
+            style={{ margin: "5px 0 0 5px" }}
+            onClick={this.setRedirect}
+          />
+        </div>
+        <h1 className="h1-cadastro">Cadastro</h1>
+        <div className="div-inputs-cadastro">
+          <div className="div-line-cadastro">
+            <input
+              className="input-cadastro input-50"
+              placeholder="Nome"
+              onChange={this.onChange}
+              name="nome"
+              value={this.state.nome}
+            ></input>
+            <input
+              className="input-cadastro input-50 margin-left"
+              placeholder="Sobrenome"
+              onChange={this.onChange}
+              name="sobrenome"
+              value={this.state.sobrenome}
+            ></input>
+          </div>
+          <div className="div-line-cadastro">
+            <input
+              className="input-cadastro input-50"
+              placeholder="CPF"
+              onChange={this.onChange}
+              name="cpf"
+              value={this.state.cpf}
+            ></input>
+            <input
+              className="input-cadastro input-50 margin-left"
+              placeholder="Celular"
+              onChange={this.onChange}
+              name="celular"
+              value={this.state.celular}
+            ></input>
+          </div>
+          <input
+            className="input-cadastro"
+            placeholder="E-mail"
+            onChange={this.onChange}
+            name="email"
+            value={this.state.email}
+          ></input>
+          <div className="div-line-cadastro">
+            <input
+              type="password"
+              className="input-cadastro input-50"
+              placeholder="Senha"
+              name="senha"
+              value={this.state.senha}
+              onChange={this.onChange}
+            ></input>
+            <input
+              type="password"
+              className="input-cadastro input-50 margin-left"
+              placeholder="Confirmar senha"
+              name="confirmar"
+              value={this.state.confirmar}
+              onChange={this.onChange}
+              onBlur={this.confirmarSenha}
+            ></input>
+          </div>
+          <Checkbox
+            onChange={this.onChangeNotificacao}
+            defaultChecked={this.state.notificacao}
+          >
+            Permitir com que nosso sitema envie notificações.
+          </Checkbox>
+        </div>
+        <button className="button-cadastro" onClick={this.newUser}>
+          Cadastrar
+        </button>
+      </div>
+    </div>
+  );
+
+  Confirmar = () => (
+    <div className="div-main-cadastro">
+      <div className="div-card-cadastro">
+        <div className="div-icon-login">
+          {this.renderRedirect()}
+          <ArrowLeftOutlined
+            style={{ margin: "5px 0 0 5px" }}
+            onClick={this.setRedirect}
+          />
+        </div>
+        <h1 className="h1-cadastro">Confirmar</h1>
+        <input
+          className="input-confirmar"
+          placeholder="0000000"
+          value={this.state.codigo}
+          name="codigo"
+          onChange={this.onChange}
+        ></input>
+        <p className="p-confirmar">
+          Quando você clicar em "Continuar", enviaremos uma mensagem de texto
+          com o código de verificação. O número de telefone confirmado pode ser
+          utilizado para se cadastrar.
+        </p>
+        <button className="button-cadastro" onClick={this.newUser}>
+          Confirmar
+        </button>
+      </div>
+    </div>
+  );
+
   render() {
     return (
-      <div className="div-main-cadastro">
-        <div className="div-card-cadastro">
-          <div className="div-icon-login">
-            {this.renderRedirect()}
-            <ArrowLeftOutlined
-              style={{ margin: "5px 0 0 5px" }}
-              onClick={this.setRedirect}
-            />
-          </div>
-          <h1 className="h1-cadastro">Cadastro</h1>
-          <div className="div-inputs-cadastro">
-            <div className="div-line-cadastro">
-              <input
-                className="input-cadastro input-50"
-                placeholder="Nome"
-                onChange={this.onChange}
-                name="nome"
-                value={this.state.nome}
-              ></input>
-              <input
-                className="input-cadastro input-50 margin-left"
-                placeholder="Sobrenome"
-                onChange={this.onChange}
-                name="sobrenome"
-                value={this.state.sobrenome}
-              ></input>
-            </div>
-            <div className="div-line-cadastro">
-              <input
-                className="input-cadastro input-50"
-                placeholder="Cpf"
-                onChange={this.onChange}
-                name="cpf"
-                value={this.state.cpf}
-              ></input>
-              <input
-                className="input-cadastro input-50 margin-left"
-                placeholder="Celular"
-                onChange={this.onChange}
-                name="celular"
-                value={this.state.celular}
-              ></input>
-            </div>
-            <input className="input-cadastro" placeholder="E-mail"></input>
-            <div className="div-line-cadastro">
-              <input
-                type="password"
-                className="input-cadastro input-50"
-                placeholder="Senha"
-                name="senha"
-                value={this.state.senha}
-                onChange={this.onChange}
-              ></input>
-              <input
-                type="password"
-                className="input-cadastro input-50 margin-left"
-                placeholder="Confirmar senha"
-                name="confirmar"
-                value={this.state.confirmar}
-                onChange={this.onChange}
-                onBlur={this.confirmarSenha}
-              ></input>
-            </div>
-            <Checkbox onChange={this.onChangeNotificacao}>
-              Permitir com que nosso sitema envie notificações.
-            </Checkbox>
-          </div>
-          <button className="button-login">Cadastrar</button>
-        </div>
-      </div>
+      <div>{this.state.cadastrar ? <this.Confirmar /> : <this.Cadastro />}</div>
     );
   }
 }

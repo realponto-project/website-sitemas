@@ -16,6 +16,11 @@ export const validator = (name, value) => {
       value = value.replace(/\D/gi, "");
       if (value.length !== 11) return true;
       break;
+    case "codigo":
+      if (value === "") return true;
+      value = value.replace(/\D/gi, "");
+      if (value.length !== 7) return true;
+      break;
     default:
       return false;
   }
@@ -51,6 +56,10 @@ export const masks = (name, value) => {
       if (length > 7)
         value = value.replace(/(\d{2})(\d{5})(\d{1,4})/, "($1) $2-$3");
 
+      return { name, value };
+    case "codigo":
+      value = value.replace(/\D/gi, "");
+      value = value.slice(0, 7);
       return { name, value };
 
     default:

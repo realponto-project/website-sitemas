@@ -16,7 +16,8 @@ import {
   PhoneFilled,
   MailFilled,
   LogoutOutlined,
-  DownOutlined
+  DownOutlined,
+  RocketFilled
 } from "@ant-design/icons";
 
 class HomePage extends Component {
@@ -398,7 +399,7 @@ class HomePage extends Component {
             </a>
             {this.props.login.user.id !== "" ? (
               <div className="div-logged-home">
-                <p className="p-logged-home">{this.props.login.user.email}</p>
+                <p className="p-logged-home">{this.props.login.user.name}</p>
                 <div className="div-avatar-home" />
                 <Dropdown overlay={this.MenuDrop} trigger={["click"]}>
                   <DownOutlined style={{ cursor: "pointer" }} />
@@ -406,7 +407,7 @@ class HomePage extends Component {
               </div>
             ) : (
               <button className="button-login-home" onClick={this.setRedirect}>
-                login
+                Login
               </button>
             )}
           </div>
@@ -504,7 +505,26 @@ class HomePage extends Component {
                 style={{
                   color: "rgb(59, 59, 59)",
                   fontFamily: "Bebas",
-                  marginTop: "10px"
+                  marginTop: "10px",
+                  cursor: "default"
+                }}
+              >
+                Sistemas
+              </h2>
+              <div className="div-a-rodape-home">
+                <a className="a-rodape-home cursor-pointer" href="/home">
+                  <RocketFilled style={{ marginRight: "7px" }} />
+                  Estoque
+                </a>
+              </div>
+            </div>
+            <div className="div-coluna-rodape-home">
+              <h2
+                style={{
+                  color: "rgb(59, 59, 59)",
+                  fontFamily: "Bebas",
+                  marginTop: "10px",
+                  cursor: "default"
                 }}
               >
                 TESTE
@@ -515,7 +535,8 @@ class HomePage extends Component {
                 style={{
                   color: "rgb(59, 59, 59)",
                   fontFamily: "Bebas",
-                  marginTop: "10px"
+                  marginTop: "10px",
+                  cursor: "default"
                 }}
               >
                 TESTE
@@ -526,18 +547,8 @@ class HomePage extends Component {
                 style={{
                   color: "rgb(59, 59, 59)",
                   fontFamily: "Bebas",
-                  marginTop: "10px"
-                }}
-              >
-                TESTE
-              </h2>
-            </div>
-            <div className="div-coluna-rodape-home">
-              <h2
-                style={{
-                  color: "rgb(59, 59, 59)",
-                  fontFamily: "Bebas",
-                  marginTop: "10px"
+                  marginTop: "10px",
+                  cursor: "default"
                 }}
               >
                 Contato
@@ -555,28 +566,29 @@ class HomePage extends Component {
                 style={{
                   color: "rgb(59, 59, 59)",
                   fontFamily: "Bebas",
-                  marginTop: "10px"
+                  marginTop: "10px",
+                  cursor: "default"
                 }}
               >
                 Redes sociais
               </h2>
               <div className="div-a-rodape-home">
                 <a
-                  className="a-rodape-home"
+                  className="a-rodape-home cursor-pointer"
                   href="https://www.facebook.com/Realponto"
                 >
                   <FacebookFilled style={{ marginRight: "7px" }} />
                   Facebook
                 </a>
                 <a
-                  className="a-rodape-home"
+                  className="a-rodape-home cursor-pointer"
                   href="https://www.instagram.com/realponto_oficial/?hl=pt"
                 >
                   <InstagramFilled style={{ marginRight: "7px" }} />
                   Instagram
                 </a>
                 <a
-                  className="a-rodape-home"
+                  className="a-rodape-home cursor-pointer"
                   href="https://www.realponto.com.br/"
                 >
                   <ChromeFilled style={{ marginRight: "7px" }} />
