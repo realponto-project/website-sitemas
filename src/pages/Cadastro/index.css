@@ -6,14 +6,76 @@
   background: url("../../images/montanha.jpg") center no-repeat;
   background-size: cover;
   padding: 150px;
+  justify-content: center;
+  align-items: center;
+}
+.div-card-cadastro {
+  width: 750px;
+  height: 550px;
+  background-color: white;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.div-inputs-cadastro {
+  width: 100%;
+  padding: 40px 50px 30px 50px;
+  display: flex;
+  flex-direction: column;
 }
 .input-cadastro {
-  width: 100%;
   height: 35px;
-  font-size: 16px;
+  font-size: 15px;
   border: none;
   border-bottom: 1px solid rgb(197, 197, 197) !important;
   padding-left: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   outline: none;
+}
+.input-cadastro::placeholder {
+  color: rgb(163, 163, 163);
+}
+.div-line-cadastro {
+  width: 100%;
+  display: flex;
+}
+.input-10 {
+  width: 10%;
+}
+.input-20 {
+  width: 20%;
+}
+.input-30 {
+  width: 30%;
+}
+.input-40 {
+  width: 40%;
+}
+.input-50 {
+  width: 50%;
+}
+.input-60 {
+  width: 60%;
+}
+.input-70 {
+  width: 70%;
+}
+.input-80 {
+  width: 80%;
+}
+.input-90 {
+  width: 90%;
+}
+.input-100 {
+  width: 100%;
+}
+.margin-left {
+  margin-left: 30px;
+}
+.h1-cadastro {
+  font-family: Bebas;
+  margin: 0;
+  font-size: 40px;
+  margin-top: 35px;
 }

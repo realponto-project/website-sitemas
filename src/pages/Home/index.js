@@ -58,8 +58,8 @@ class HomePage extends Component {
 
   MenuDrop = () => (
     <Menu className="drop-home">
-      <Menu.Item className="drop-submenu-home">
-        <LogoutOutlined onClick={this.props.Logout()} />
+      <Menu.Item onClick={this.props.Logout} className="drop-submenu-home">
+        <LogoutOutlined />
         Logout
       </Menu.Item>
     </Menu>
