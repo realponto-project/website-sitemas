@@ -422,7 +422,7 @@ class HomePage extends Component {
               <div className="div-logged-home">
                 <p className="p-logged-home">{this.props.login.user.name}</p>
                 <div className="div-avatar-home" />
-                <Dropdown overlay={this.MenuDrop} trigger={["click"]}>
+                <Dropdown overlay={this.MenuDrop} trigger={["hover"]}>
                   <DownOutlined style={{ cursor: "pointer" }} />
                 </Dropdown>
               </div>
@@ -637,7 +637,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispacthToProps
-)(HomePage);
+export default connect(mapStateToProps, mapDispacthToProps)(HomePage);
