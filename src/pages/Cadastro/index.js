@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import "./index.css";
 import { Checkbox, message } from "antd";
 import { masks } from "../../services/utils/validators";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { Redirect } from "react-router-dom";
-import { NewUser, Check } from "../../services/user";
+import { NewUser } from "../../services/user";
+
+import { setNewUserId } from "./NewUserRedux/action";
 
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
@@ -19,7 +23,7 @@ class CadastroPage extends Component {
     celular: "",
     notificacao: false,
     rendirect: false,
-    rendirectToConfirmar: false
+    renderRedirectToConfirmar: false
   };
 
   clearState = () => {
@@ -61,10 +65,10 @@ class CadastroPage extends Component {
     if (status === 200) {
       await this.clearState();
       await this.setState({
-        rendirectToConfirmar: true,
-        id: data.id,
+        renderRedirectToConfirmar: true,
         cadastrar: true
       });
+      this.props.setNewUserId({ id: data.id });
     }
   };
 
@@ -192,4 +196,12 @@ class CadastroPage extends Component {
   }
 }
 
-export default CadastroPage;
+function mapDispacthToProps(dispach) {
+  return bindActionCreators({ setNewUserId }, dispach);
+}
+
+function mapStateToProps(state) {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispacthToProps)(CadastroPage);

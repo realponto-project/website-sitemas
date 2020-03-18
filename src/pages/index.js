@@ -13,11 +13,7 @@ class PagesRoute extends Component {
   };
 
   componentDidMount = async () => {
-    await promisify(jwt.verify)(
-      this.props.login.token,
-      // this.props.login.token,
-      "%dfsJd"
-    )
+    await promisify(jwt.verify)(this.props.login.token, "RP@mod")
       .then(resp => {
         this.props.onSubmit({
           user: {
@@ -55,7 +51,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispacthToProps
-)(PagesRoute);
+export default connect(mapStateToProps, mapDispacthToProps)(PagesRoute);

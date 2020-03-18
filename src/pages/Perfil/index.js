@@ -56,8 +56,8 @@ class PerfilPage extends Component {
     return (
       <div className="main-home">
         <div className="div-menu-home">
-          {this.renderRedirect()}
-          {this.renderRedirectToPerfil()}
+          {this.renderRedirect}
+          {this.renderRedirectToPerfil}
           <div className="div-logo-home">
             <a
               style={{
@@ -178,7 +178,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispacthToProps
-)(PerfilPage);
+export default connect(mapStateToProps, mapDispacthToProps)(PerfilPage);

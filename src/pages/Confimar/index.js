@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "./index.css";
+import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { masks } from "../../services/utils/validators";
 import { ArrowLeftOutlined } from "@ant-design/icons";
+import { Check } from "../../services/user";
+import { message, Button } from "antd";
 
 class ConfirmarPage extends Component {
   state = {
@@ -14,7 +17,8 @@ class ConfirmarPage extends Component {
     codigoCinco: "",
     codigoSeis: "",
     codigoSete: "",
-    rendirect: false
+    rendirect: false,
+    loading: false
   };
 
   clearState = () => {
@@ -44,15 +48,31 @@ class ConfirmarPage extends Component {
     });
   };
   renderRedirect = () => {
-    if (this.state.redirect) {
+    if (this.state.redirect || !this.props.newUserId) {
       return <Redirect to="/cadastro" />;
     }
   };
 
-  pullStateCodigo = async () => {
+  check = async () => {
+    const key = `${this.state.codigoUm}${this.state.codigoDois}${this.state.codigoTres}${this.state.codigoQuatro}${this.state.codigoCinco}${this.state.codigoSeis}${this.state.codigoSete}`;
+
     await this.setState({
-      codigo: `${this.state.codigoUm}${this.state.codigoDois}${this.state.codigoTres}${this.state.codigoQuatro}${this.state.codigoCinco}${this.state.codigoSeis}${this.state.codigoSete}`
+      codigo: key,
+      loading: true
     });
+
+    const { status, data } = await Check({ key, id: this.props.newUserId.id });
+
+    console.log(status, data);
+    await this.setState({
+      loading: false
+    });
+
+    if (status === 200) {
+      message.success("cadastro confirmado");
+    } else {
+      message.error("chave de acesso incorreta");
+    }
   };
 
   render() {
@@ -160,13 +180,26 @@ class ConfirmarPage extends Component {
             com o código de verificação. O número de telefone confirmado pode
             ser utilizado para se cadastrar.
           </p>
-          <button className="button-cadastro" onClick={this.pullStateCodigo}>
+          {/* <button className="button-cadastro" onClick={this.check}>
             Confirmar
-          </button>
+          </button> */}
+          <Button
+            className="button-cadastro"
+            onClick={this.check}
+            loading={this.state.loading}
+          >
+            Confirmar
+          </Button>
         </div>
       </div>
     );
   }
 }
 
-export default ConfirmarPage;
+function mapStateToProps(state) {
+  return {
+    newUserId: state.newUserId
+  };
+}
+
+export default connect(mapStateToProps)(ConfirmarPage);
