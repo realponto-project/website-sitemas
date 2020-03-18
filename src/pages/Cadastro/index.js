@@ -3,12 +3,13 @@ import "./index.css";
 import { Checkbox, message } from "antd";
 import { masks } from "../../services/utils/validators";
 import { Redirect } from "react-router-dom";
-import { NewUser } from "../../services/user";
+import { NewUser, Check } from "../../services/user";
 
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
 class CadastroPage extends Component {
   state = {
+    id: null,
     nome: "",
     sobrenome: "",
     cpf: "",
@@ -56,11 +57,13 @@ class CadastroPage extends Component {
 
     const { status, data } = await NewUser(value);
 
+    console.log(status, data);
     if (status === 200) {
-      console.log(data);
       await this.clearState();
       await this.setState({
-        rendirectToConfirmar: true
+        rendirectToConfirmar: true,
+        id: data.id,
+        cadastrar: true
       });
     }
   };

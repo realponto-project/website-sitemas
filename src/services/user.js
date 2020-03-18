@@ -17,3 +17,21 @@ export const NewUser = async value => {
 
   return response;
 };
+
+export const Check = async value => {
+  let response = {};
+  await api
+    .post("/user/check", value, {})
+    .then(resp => {
+      response = resp;
+    })
+    .catch(err => {
+      if (err.response) {
+        response = err.response;
+      } else {
+        console.log("Error", err.message);
+      }
+    });
+
+  return response;
+};
