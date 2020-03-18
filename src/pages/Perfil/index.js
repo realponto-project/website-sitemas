@@ -33,9 +33,10 @@ class PerfilPage extends Component {
 
   renderRedirectToPerfil = () => {
     if (this.state.redirectToPerfil) {
-      return <Redirect to="/logged/perfil" />;
+      return <Redirect to="/perfil" />;
     }
   };
+
   MenuDrop = () => (
     <Menu className="drop-home">
       <Menu.Item

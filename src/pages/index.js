@@ -7,7 +7,7 @@ import { promisify } from "util";
 import { Logout, onSubmit } from "./Login/LoginRedux/action";
 import PerfilPage from "./Perfil";
 
-class PagesRoute extends Component {
+class PagesRoutes extends Component {
   state = {
     auth: true
   };
@@ -51,4 +51,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispacthToProps)(PagesRoute);
+export default connect(
+  mapStateToProps,
+  mapDispacthToProps
+)(PagesRoutes);

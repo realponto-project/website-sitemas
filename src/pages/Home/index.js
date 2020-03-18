@@ -22,6 +22,12 @@ import {
 } from "@ant-design/icons";
 
 class HomePage extends Component {
+  state = {
+    redirect: false,
+    redirectToPerfil: false,
+    page: 0
+  };
+
   componentDidMount() {
     setInterval(() => {
       this.setState({
@@ -29,12 +35,6 @@ class HomePage extends Component {
       });
     }, 5000);
   }
-
-  state = {
-    redirect: false,
-    redirectToPerfil: false,
-    page: 0
-  };
 
   setRedirect = () => {
     this.setState({
@@ -54,7 +54,7 @@ class HomePage extends Component {
 
   renderRedirectToPerfil = () => {
     if (this.state.redirectToPerfil) {
-      return <Redirect to="/logged/perfil" />;
+      return <Redirect to="/perfil" />;
     }
   };
 
@@ -399,8 +399,8 @@ class HomePage extends Component {
     return (
       <div className="main-home">
         <div className="div-menu-home">
-          {this.renderRedirect()}
           {this.renderRedirectToPerfil()}
+          {this.renderRedirect()}
           <div className="div-logo-home">
             <a
               style={{

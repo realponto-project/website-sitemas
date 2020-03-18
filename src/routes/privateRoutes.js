@@ -2,20 +2,14 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
-import PagesRoute from "../pages";
+import PagesRoutes from "../pages";
 
-class PrivateRoute extends Component {
+class PrivateRoutes extends Component {
   render() {
     return (
-      <div className="div-main-route">
-        <div className="div-main-body">
-          <div>
-            <Switch>
-              <Route path="/logged" component={PagesRoute} />
-            </Switch>
-          </div>
-        </div>
-      </div>
+      <Switch>
+        <Route exact path="/logged" component={PagesRoutes} />
+      </Switch>
     );
   }
 }
@@ -26,4 +20,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps)(PrivateRoutes);
