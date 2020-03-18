@@ -1,0 +1,47 @@
+.div-main-perfil {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #68a9f8;
+}
+.h1-perfil {
+  font-family: Bebas;
+  margin: 0;
+  font-size: 40px;
+}
+.div-inputs-perfil {
+  width: 600px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border-radius: 7px;
+  align-items: center;
+  justify-content: space-around;
+}
+.input-cadastro {
+  height: 35px;
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid rgb(197, 197, 197) !important;
+  padding-left: 5px;
+  margin-bottom: 15px;
+  outline: none;
+}
+.button-perfil {
+  background-color: #1e90ff;
+  color: white;
+  width: 90px;
+  height: 35px;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+}
+.button-perfil:active {
+  background-color: #2077ce;
+}

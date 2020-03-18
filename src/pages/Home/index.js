@@ -17,7 +17,8 @@ import {
   MailFilled,
   LogoutOutlined,
   DownOutlined,
-  RocketFilled
+  RocketFilled,
+  UserOutlined
 } from "@ant-design/icons";
 
 class HomePage extends Component {
@@ -31,6 +32,7 @@ class HomePage extends Component {
 
   state = {
     redirect: false,
+    redirectToPerfil: false,
     page: 0
   };
 
@@ -42,6 +44,17 @@ class HomePage extends Component {
   renderRedirect = () => {
     if (this.state.redirect) {
       return <Redirect to="/login" />;
+    }
+  };
+  setRedirectToPerfil = () => {
+    this.setState({
+      redirectToPerfil: true
+    });
+  };
+
+  renderRedirectToPerfil = () => {
+    if (this.state.redirectToPerfil) {
+      return <Redirect to="/logged/perfil" />;
     }
   };
 
@@ -59,6 +72,13 @@ class HomePage extends Component {
 
   MenuDrop = () => (
     <Menu className="drop-home">
+      <Menu.Item
+        onClick={this.setRedirectToPerfil}
+        className="drop-submenu-home"
+      >
+        <UserOutlined />
+        Perfil
+      </Menu.Item>
       <Menu.Item onClick={this.props.Logout} className="drop-submenu-home">
         <LogoutOutlined />
         Logout
@@ -380,6 +400,7 @@ class HomePage extends Component {
       <div className="main-home">
         <div className="div-menu-home">
           {this.renderRedirect()}
+          {this.renderRedirectToPerfil()}
           <div className="div-logo-home">
             <a
               style={{

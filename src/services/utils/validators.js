@@ -57,9 +57,33 @@ export const masks = (name, value) => {
         value = value.replace(/(\d{2})(\d{5})(\d{1,4})/, "($1) $2-$3");
 
       return { name, value };
-    case "codigo":
+    case "codigoUm":
       value = value.replace(/\D/gi, "");
-      value = value.slice(0, 7);
+      value = value.slice(0, 1);
+      return { name, value };
+    case "codigoDois":
+      value = value.replace(/\D/gi, "");
+      value = value.slice(0, 1);
+      return { name, value };
+    case "codigoTres":
+      value = value.replace(/\D/gi, "");
+      value = value.slice(0, 1);
+      return { name, value };
+    case "codigoQuatro":
+      value = value.replace(/\D/gi, "");
+      value = value.slice(0, 1);
+      return { name, value };
+    case "codigoCinco":
+      value = value.replace(/\D/gi, "");
+      value = value.slice(0, 1);
+      return { name, value };
+    case "codigoSeis":
+      value = value.replace(/\D/gi, "");
+      value = value.slice(0, 1);
+      return { name, value };
+    case "codigoSete":
+      value = value.replace(/\D/gi, "");
+      value = value.slice(0, 1);
       return { name, value };
 
     default:

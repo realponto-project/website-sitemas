@@ -1,0 +1,25 @@
+.p-confirmar {
+  color: rgb(163, 163, 163);
+  margin: 0 100px 20px 100px;
+  font-size: 15px;
+}
+.input-confirmar {
+  width: 40px;
+  height: 65px;
+  font-size: 50px;
+  margin: 0 2px;
+  border: none;
+  outline: none;
+  background-color: rgb(226, 226, 226);
+  text-align: center;
+  border-radius: 10px;
+  color: black;
+}
+.div-inputs-confirmar {
+  width: 240px;
+  height: 60px;
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -5,6 +5,7 @@ import PrivateRoute from "./privateRoutes";
 import HomePage from "../pages/Home";
 import LoginPage from "../pages/Login";
 import CadastroPage from "../pages/Cadastro";
+import ConfirmarPage from "../pages/Confimar";
 
 const Routes = () => (
   <BrowserRouter>
@@ -12,6 +13,7 @@ const Routes = () => (
       <Route exact path="/home" component={HomePage} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/cadastro" component={CadastroPage} />
+      <Route exact path="/confirmar" component={ConfirmarPage} />
       <PrivateRoute path="/logged" />
       <Redirect to="/home" />
     </Switch>

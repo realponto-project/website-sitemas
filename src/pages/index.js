@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import {
-  // Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import jwt from "jsonwebtoken";
 import { promisify } from "util";
 import { Logout, onSubmit } from "./Login/LoginRedux/action";
+import PerfilPage from "./Perfil";
 
 class PagesRoute extends Component {
   state = {
@@ -38,7 +35,9 @@ class PagesRoute extends Component {
   render() {
     if (this.props.login.token) {
       return (
-        <Switch>{/* <Route exact path="/home" component={Home} /> */}</Switch>
+        <Switch>
+          <Route exact path="/logged/perfil" component={PerfilPage} />
+        </Switch>
       );
     } else {
       return <Redirect to="/home" />;
