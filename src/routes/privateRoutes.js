@@ -8,7 +8,7 @@ class PrivateRoutes extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/logged" component={PagesRoutes} />
+        <Route path="/logged" component={PagesRoutes} />
       </Switch>
     );
   }

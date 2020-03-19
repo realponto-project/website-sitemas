@@ -51,7 +51,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispacthToProps
-)(PagesRoutes);
+export default connect(mapStateToProps, mapDispacthToProps)(PagesRoutes);

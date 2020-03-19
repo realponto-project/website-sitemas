@@ -54,7 +54,7 @@ class HomePage extends Component {
 
   renderRedirectToPerfil = () => {
     if (this.state.redirectToPerfil) {
-      return <Redirect to="/perfil" />;
+      return <Redirect to="/logged/perfil" />;
     }
   };
 

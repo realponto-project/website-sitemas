@@ -10,11 +10,11 @@ import ConfirmarPage from "../pages/Confimar";
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/home" component={HomePage} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/cadastro" component={CadastroPage} />
       <Route exact path="/confirmar" component={ConfirmarPage} />
-      <PrivateRoutes exact path="/logged" />
+      <PrivateRoutes path="/logged" />
+      <Route exact path="/home" component={HomePage} />
       <Redirect to="/home" />
     </Switch>
   </BrowserRouter>
