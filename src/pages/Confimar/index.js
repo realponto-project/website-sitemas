@@ -44,12 +44,12 @@ class ConfirmarPage extends Component {
 
   setRedirect = () => {
     this.setState({
-      redirect: true
+      redirect: "/cadastro"
     });
   };
   renderRedirect = () => {
     if (this.state.redirect || !this.props.newUserId) {
-      return <Redirect to="/cadastro" />;
+      return <Redirect to={this.state.rendirect} />;
     }
   };
 
@@ -63,13 +63,13 @@ class ConfirmarPage extends Component {
 
     const { status, data } = await Check({ key, id: this.props.newUserId.id });
 
-    console.log(status, data);
     await this.setState({
       loading: false
     });
 
     if (status === 200) {
       message.success("cadastro confirmado");
+      this.setState({ redirect: "/login" });
     } else {
       message.error("chave de acesso incorreta");
     }
