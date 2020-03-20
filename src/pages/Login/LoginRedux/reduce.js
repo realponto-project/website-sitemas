@@ -22,6 +22,11 @@ export function login(state = INICIAL_STATE_LOGIN, action) {
       return auth;
     case actions.LOGIN.LOGOUT:
       return (state = INICIAL_STATE_LOGIN);
+    case actions.USER.UPDATE:
+      return {
+        ...state,
+        ...action.payload
+      };
     default:
       return state;
   }

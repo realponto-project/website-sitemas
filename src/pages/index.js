@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import jwt from "jsonwebtoken";
 import { promisify } from "util";
 import { Logout, onSubmit } from "./Login/LoginRedux/action";
-import PerfilPage from "./Perfil";
+import PerfilRoute from "./Perfil";
 
 class PagesRoutes extends Component {
   state = {
@@ -32,7 +32,7 @@ class PagesRoutes extends Component {
     if (this.props.login.token) {
       return (
         <Switch>
-          <Route exact path="/logged/perfil" component={PerfilPage} />
+          <Route path="/logged/perfil" component={PerfilRoute} />
         </Switch>
       );
     } else {

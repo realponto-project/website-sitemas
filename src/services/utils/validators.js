@@ -37,11 +37,11 @@ export const masks = (name, value) => {
       length = value.length;
 
       if (length > 3 && length <= 6)
-        value = value.replace(/(\d{3})(\d{1,3})/, "$1$2");
+        value = value.replace(/(\d{3})(\d{1,3})/, "$1.$2");
       if (length > 6 && length <= 9)
-        value = value.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1$2$3");
+        value = value.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
       if (length > 9 && length <= 11)
-        value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1$2$3/$4");
+        value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3/$4");
 
       return { name, value };
     case "celular":

@@ -45,3 +45,14 @@
 .button-perfil:active {
   background-color: #2077ce;
 }
+
+.h3-trocar-senha {
+  cursor: pointer;
+  color: #0e75db;
+}
+.h3-trocar-senha:hover {
+  color: #489ff5;
+}
+.sb {
+  justify-content: space-between;
+}

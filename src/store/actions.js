@@ -3,5 +3,8 @@ export default {
     AUTH: "LOGIN_AUTH",
     LOGOUT: "LOGOUT_AUTH"
   },
-  NEW_USER_ID: "NEW_USER_ID"
+  NEW_USER_ID: "NEW_USER_ID",
+  USER: {
+    UPDATE: "USER_UPDATE"
+  }
 };
