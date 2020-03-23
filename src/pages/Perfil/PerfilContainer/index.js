@@ -109,4 +109,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispacthToProps)(PerfilPage);
+export default connect(
+  mapStateToProps,
+  mapDispacthToProps
+)(PerfilPage);

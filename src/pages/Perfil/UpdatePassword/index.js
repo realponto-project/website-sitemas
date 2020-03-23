@@ -47,6 +47,8 @@ class UpdatePasswordPage extends Component {
       newPassword
     });
 
+    console.log(data);
+
     if (status === 200) {
       message.success("senha aualizada");
       this.clearState();
