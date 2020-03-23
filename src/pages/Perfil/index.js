@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
-import { Menu, Dropdown } from "antd";
+import { Menu, Dropdown, message } from "antd";
 import { Redirect } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import { bindActionCreators } from "redux";
@@ -26,6 +26,14 @@ class PerfilRoute extends Component {
     confirmarSenha: ""
   };
 
+  confirmarSenha = () => {
+    if (this.state.novaSenha !== this.state.confirmarSenha) {
+      message.error("As senhas não coincidem");
+    } else {
+      message.success("Tudo certo");
+    }
+  };
+
   setRedirect = () => {
     this.setState({
       redirect: true
@@ -46,6 +54,12 @@ class PerfilRoute extends Component {
     if (this.state.redirectToPerfil) {
       return <Redirect to="/perfil" />;
     }
+  };
+
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   };
 
   MenuDrop = () => (
@@ -125,4 +139,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispacthToProps)(PerfilRoute);
+export default connect(
+  mapStateToProps,
+  mapDispacthToProps
+)(PerfilRoute);

@@ -62,7 +62,7 @@ class ConfirmarPage extends Component {
     });
 
     const { status, data } = await Check({ key, id: this.props.newUserId.id });
-
+    console.log(data);
     await this.setState({
       loading: false
     });

@@ -4,7 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #68a9f8;
+  background: url("../../images/montanha.jpg") center no-repeat;
+  background-size: cover;
 }
 .h1-perfil {
   font-family: Bebas;
