@@ -69,7 +69,6 @@ class PerfilPage extends Component {
               value={this.state.cpf}
             ></input>
             <input
-              readOnly
               className="input-cadastro input-50 margin-left"
               placeholder="Celular"
               onChange={this.onChange}
@@ -79,7 +78,6 @@ class PerfilPage extends Component {
           </div>
           <div className="div-line-cadastro">
             <input
-              readOnly
               className="input-cadastro input-60"
               placeholder="E-mail"
               onChange={this.onChange}
